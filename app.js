@@ -9,6 +9,7 @@ import smsRouter from './router/smsRouter.js';
 import userRouter from './router/userValidateRouter.js';
 import itemRouter from './router/itemRouter.js';
 import questionRouter from './router/questionRouter.js';
+import * as itemRepository from './repository/itemRepository.js';
 
 const app = express();
 const corsOptions = {
@@ -27,6 +28,8 @@ app.use('/user', userRouter);
 app.use('/items', itemRouter);
 app.use('/board', questionRouter);
 app.use('/sms', smsRouter);
+
+itemRepository.itemInitData()
 
 app.use((error, request, response, next) => { // catch server error
     console.error(error);

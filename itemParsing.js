@@ -1,5 +1,4 @@
-// npm install xslx 해야함
-const xlsx = require("xlsx");
+import xlsx from 'xlsx';
 
 const excelFile = xlsx.readFile("excelDB.xlsx");
 
@@ -8,5 +7,4 @@ const firstSheet = excelFile.Sheets[sheetName];
 
 const dbData = xlsx.utils.sheet_to_json(firstSheet, { defval: "" });
 
-console.log(dbData);
-
+export async function getItemData() { return dbData; }
