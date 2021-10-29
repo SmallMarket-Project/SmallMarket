@@ -17,6 +17,6 @@ export async function itemInitData() {
   const datas = await getItemData();
   for(let i = 0; i < datas.length; i++) {
     const items = datas[i];
-    Item.create(items);
+    Item.create(items).then(item => console.log(item.id)).catch(error => console.log(error));
   }
 }

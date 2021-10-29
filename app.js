@@ -13,7 +13,7 @@ import * as itemRepository from './repository/itemRepository.js';
 
 const app = express();
 const corsOptions = {
-    origin: config.host.client,
+    origin: config.cors.allowedCors,
     // origin: "http://localhost:3000",
     credentials: true,
 }
@@ -29,7 +29,7 @@ app.use('/items', itemRouter);
 app.use('/board', questionRouter);
 app.use('/sms', smsRouter);
 
-itemRepository.itemInitData()
+// itemRepository.itemInitData()
 
 app.use((error, request, response, next) => { // catch server error
     console.error(error);
